@@ -1,0 +1,64 @@
+footer {
+    display: inline-block;
+    width: 100%;
+    background: $white;
+    margin: 0 auto 0;
+
+    .wrap {
+        width: 100%;
+        display: inline-block;
+        padding: 4rem 10px;
+
+        .content {
+            float: left;
+        }
+
+        .social {
+            float: right;
+
+            ul, ul li {
+                margin: 0;
+                padding: 0;
+            }
+
+            ul {
+                li {
+                    display: inline-block;
+                    list-style-type: none;
+                    width: auto;
+                    height: auto;
+                    padding: 0 1rem;
+
+                    &.first { padding-left: 0; }
+                    &.last { padding-right: 0; }
+
+                    i {
+                        font-size: 1.8rem;
+                        line-height: 1;
+                    }
+
+                }
+            }
+
+
+        }
+
+
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    footer .wrap {
+        .content,
+        .social {
+            display: block;
+            float: none;
+            width: 100%;
+        }
+
+        .social {
+            margin: 2rem 0 0 0;
+        }
+
+    }
+}

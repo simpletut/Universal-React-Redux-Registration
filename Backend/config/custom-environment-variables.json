@@ -1,0 +1,9 @@
+{
+    "jwtPrivateKey": "app_jwtKey",
+    "mailServer": {
+        "auth": {
+            "user": "mailServer_user",
+            "pass": "mailServer_pass"
+        }
+    }
+}

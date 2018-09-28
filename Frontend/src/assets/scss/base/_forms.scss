@@ -1,0 +1,255 @@
+input, select, textarea, button {
+    font-family: 'Lato',helvetica,arial,clean,sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    font-style: normal;
+    color: $txtCol;
+    outline: none;
+}
+
+input, select, textarea {
+    width: 100%;
+    background: #eceff1;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    box-shadow: inset 0 1px 0 0 #cfd8dc;
+    outline: none;
+    padding: 1.5rem 1.5rem;
+    @include transition(all .4s ease-in-out);
+}
+
+input[type=text], input[type=password], input[type=submit], input[type=button], select, textarea, button {
+    border-radius: 0;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+input[type=radio] { margin: 0 .3rem 0 .6rem; }
+
+input:focus, select:focus, textarea:focus {
+    background: $white;
+    border-color: $light_blue;
+    box-shadow: none;
+    @include transition(all .4s ease-in-out);
+}
+
+.error-label,
+.success-label {
+    clear: both;
+    display: block;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    color: $white;
+    font-weight: 500;
+}
+
+.error-label { background: #455761; }
+
+.success-label { background: #00b3bd; }
+
+.form_wrap, .form_row {
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.form_wrap {
+    width: 100%;
+    max-width: 30.0rem;
+    margin: 0 auto;
+    padding: 8rem 10px 4rem;
+
+    &.logoutWrap {
+        text-align: center;
+    }
+
+    &.withHeading {
+        padding-top: 4rem;
+
+        h1 {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            font-size: 2rem;
+            line-height: 1;
+            text-transform: uppercase;
+            letter-spacing: 2px; 
+            margin: 0 auto 4rem;
+            padding: 0;
+        }
+    }
+
+    
+
+    .form_row {
+        margin-bottom: 2rem; 
+
+        &.noLabel {
+            .form_item .form_label {display: none;}
+        }
+
+        .form_item {
+
+            .form_label {
+                padding-bottom: 1rem;
+            
+                label {
+                    font-size: 1.5rem;
+                    font-weight: 400;
+                    font-style: normal;
+                    color: $txtCol;
+                }
+
+            }
+
+            .form_input {
+                position: relative;
+
+                input {
+                    width: 100%;
+                    font-size: 1.5rem;
+                    font-weight: 400;
+                    font-style: normal;
+                    padding-right: 4rem;
+                }
+
+                .pass, .fail {
+                    opacity: 0;
+                    display: block;
+                    position: absolute;
+                    top: 50%; right: 1.5rem;
+                    @include translateY(-50%);
+                    @include transition(all .4s ease-in-out);
+                    @include transition(all .4s ease-in-out);
+                }
+
+                .pass { color: $green; }
+                .fail { color: $red; }
+
+            }
+
+            .form_textarea {
+                textarea {
+                    width: 100%;
+                    padding: .9rem 4rem .9rem 1.2rem;
+                    font-size: 1.5rem;
+                    font-weight: 400;
+                    font-style: normal;
+                    color: $txtCol;
+                }
+            }
+
+            .invalid_msg {
+                max-height: 0;
+                margin: 1rem 0 0;
+                font-size: 1.0rem;
+                line-height: normal;
+                letter-spacing: 0.1rem;
+                font-weight: 500;
+                text-align: left;
+                text-transform: uppercase;
+                color: #ff6767;
+                opacity: 0;
+                overflow: hidden;
+                height: auto;
+                max-height: 0;
+                @include transition(all .4s ease-in-out);
+            }
+
+            .spinner {
+                opacity: 0;
+                position: absolute;
+                width: 17px;
+                height: 17px;
+                right: 1.2rem;
+                top: 50%;
+                @include translateY(-50%);
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    width: 17px;
+                    height: 17px;
+                    border-radius: 50%;
+                    border-top: 2px solid $black;
+                    border-right: 2px solid transparent;
+                    -webkit-animation: spinner .6s linear infinite;
+                    -moz-animation: spinner .6s linear infinite;
+                    animation: spinner .6s linear infinite;
+                  }
+            }
+
+            &.dirty {
+
+                &.async_validating {
+                    .spinner {
+                        opacity: 1; 
+                        @include transition(all .4s ease-in-out);
+                    }
+                    .fail { opacity: 0; }
+                    .pass { opacity: 0; }
+                    
+                    &.invalid {
+                        .fail { opacity: 0; }
+                    }
+                }
+
+                &.invalid {
+                    .fail { opacity: 1; }
+                    .pass { opacity: 0; }
+
+                    .invalid_msg {
+                        opacity: 1;
+                        max-height: 10.0rem;
+                        @include transition(all .4s ease-in-out);
+                    }
+                }
+                .fail { opacity: 0; }
+                .pass { opacity: 1;}
+            }
+
+        }
+
+    }
+
+
+}
+
+.form_buttons {
+    display: block;
+    width: 100%;
+
+    .btn {
+        position: relative;
+        display: block;
+        width: 100%;
+        font-size: 1.5rem;
+        line-height: normal;
+        color: $white;
+        font-weight: 400;
+        text-align: center;
+        padding: 1.5rem 4.5rem;
+        margin: auto 0;
+        background: $light_blue;
+        border: none;
+        cursor: pointer;
+
+        &:hover {
+            background: $black;
+            color: $white;
+        }
+
+    }
+
+    .btn, .btn:hover {
+        @include transition(all .4s ease-in-out);
+    }
+
+}
+
+// Removing input background colour for Chrome autocomplete
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px white inset;
+    border-color: $light_blue;
+}
