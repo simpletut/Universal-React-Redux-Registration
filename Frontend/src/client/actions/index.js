@@ -37,7 +37,7 @@ export const loginUser = (data) => async (dispatch, getState, api) => {
 
 export const getAuthStatus = () => async (dispatch, getState, api) => {
 
-    const status = await api.get('/auth-status');
+    const status = await api.get('/auth/status');
 
     dispatch({
         type: AUTH_STATUS,
@@ -52,7 +52,7 @@ export const checkAuthStatus = (token) => async (dispatch, getState, api) => {
         api.defaults.headers['x-auth-token'] = token;
     }
 
-    await api.get('/auth-status').then(() => {
+    await api.get('/auth/status').then(() => {
     }).catch(() => {
         dispatch({
             type: AUTH_STATUS,
@@ -91,7 +91,7 @@ export const changeEmail = (token, data) => async (dispatch, getState, api) => {
         api.defaults.headers['x-auth-token'] = token;
     }
 
-    await api.put('/email', data).then(res => {
+    await api.put('/users/email', data).then(res => {
         dispatch({
             type: CHANGE_EMAIL_SUCCESS,
             payload: true
@@ -110,7 +110,7 @@ export const changePassword = (token, data) => async (dispatch, getState, api) =
         api.defaults.headers['x-auth-token'] = token;
     }
 
-    await api.put('/password', data).then(res => {
+    await api.put('/users/password', data).then(res => {
         dispatch({
             type: NEW_PASSWORD_SUCCESS,
             payload: true
@@ -126,7 +126,7 @@ export const changePassword = (token, data) => async (dispatch, getState, api) =
 
 export const resetPassword = (data) => async (dispatch, getState, api) => {
 
-    await api.put('/reset', data).then(res => {
+    await api.put('/users/reset', data).then(res => {
         dispatch({
             type: RESET_PW_SUCCESS,
             payload: true

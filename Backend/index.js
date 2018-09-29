@@ -1,13 +1,14 @@
 const express = require('express');
 var cors = require('cors')
 var cookieParser = require('cookie-parser');
+const webConfig = require('./webConfig.json');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 var corsOptions = {
   credentials: true,
-  origin: 'http://localhost:8080',
+  origin: webConfig.frontend_url,
   optionsSuccessStatus: 200
 }
 

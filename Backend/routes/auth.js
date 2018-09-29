@@ -1,3 +1,4 @@
+const auth = require('./../middleware/auth');
 const _ = require('lodash');
 const Joi = require('joi');
 const bcrypt = require('bcrypt');
@@ -7,6 +8,7 @@ const express = require('express');
 
 const router = express.Router();
 
+// auth (login) users
 router.post('/', async (req,res) => {
     const {error} = validate(req.body);
     if(error) return res.status(400).send(error.details[0].message);
@@ -19,6 +21,12 @@ router.post('/', async (req,res) => {
 
     const token = user.generateAuthToken();
     res.send(token);
+});
+
+// check auth status
+router.get('/status', auth, async (req,res,next) => {
+    const user = await User.findById(req.user._id).select('-password');
+    res.send(true);    
 });
 
 module.exports = router;

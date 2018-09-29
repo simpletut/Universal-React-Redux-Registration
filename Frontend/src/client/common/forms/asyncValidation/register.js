@@ -8,7 +8,7 @@ const asyncValidate = (values, dispatch, props, field) => {
 
     const email = new Promise(resolve => {
         if (values.email) {
-            axios.post(`${webConfig.axiosInstance_baseURL}/email/unique`, values)
+            axios.post(`${webConfig.axiosInstance_baseURL}/users/email/unique`, values)
             .then(res => {
 
                 if (res.data.unique != true) {
@@ -31,7 +31,7 @@ const asyncValidate = (values, dispatch, props, field) => {
 
     const username = new Promise(resolve => {
         if (values.username) {
-            axios.post(`${webConfig.axiosInstance_baseURL}/username/unique`, values)
+            axios.post(`${webConfig.axiosInstance_baseURL}/users/username/unique`, values)
             .then(res => {
 
                 if (res.data.unique != true) {

@@ -10,6 +10,7 @@ import Reset from './../pages/auth/reset';
 import Dashboard from './../pages/dashboard';
 import Account from './../pages/auth/account';
 import LogOut from './../pages/auth/logOut';
+import NotFound from './../pages/notFound';
 
 export default [
     {
@@ -75,6 +76,15 @@ export default [
         routes: [
             {
                 ...LogOut
+            }
+        ]
+    },
+    {
+        path: '/',
+        ...Auth,
+        routes: [
+            {
+                ...NotFound
             }
         ]
     }
