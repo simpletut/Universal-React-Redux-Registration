@@ -5,5 +5,3 @@ build
 yarn-error.log
 package-lock.json
 /coverage/
-uncaughtExceptions.log
-logfile.log

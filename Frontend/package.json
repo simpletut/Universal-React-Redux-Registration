@@ -50,7 +50,8 @@
     "toastr": "2.1.4",
     "webpack": "3.5.6",
     "webpack-node-externals": "1.6.0",
-    "winston": "2.4.0"
+    "winston": "2.4.0",
+    "babel-polyfill": "6.26.0"
   },
   "devDependencies": {
     "@babel/core": "7.0.0",
@@ -59,7 +60,6 @@
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "23.6.0",
     "babel-loader": "8.0.2",
-    "babel-polyfill": "6.26.0",
     "css-loader": "0.28.7",
     "enzyme": "3.6.0",
     "enzyme-adapter-react-16": "1.5.0",
