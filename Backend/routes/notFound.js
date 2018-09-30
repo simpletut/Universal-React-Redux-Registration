@@ -1,9 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const webConfig = require('./../webConfig.json');
 
 router.use('/', (req,res) => {
-    res.redirect(`${webConfig.frontend_url}/error`);
+    res.send('Invalid request');
 });
 
 module.exports = router;

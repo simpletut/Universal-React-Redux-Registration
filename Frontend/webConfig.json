@@ -1,4 +1,5 @@
 {
     "siteURL": "http://localhost:8080",
-    "axiosInstance_baseURL": "http://localhost:3000/api"
+    "axiosInstance_baseURL": "http://localhost:3000/api",
+    "environment": "development"
 }

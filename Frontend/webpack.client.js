@@ -1,6 +1,11 @@
 const path = require('path');
+const webConfig = require('./webConfig.json');
 
 module.exports = {
+
+    // production || development
+    mode: webConfig.environment,
+
     // Tell webpack the root file of our
     // server application 
     entry: ['./src/client/client.js', './src/assets/scss/styles.scss'],
