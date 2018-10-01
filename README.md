@@ -17,7 +17,7 @@
 Please note: As the Demo is hosted on a free Heroku account, the servers its hosted on enter ‘sleep mode’ when not in use. If you notice a delay, please allow a few seconds for the servers to wake up.
 
 
-#### System includes:
+##### System includes:
 
 Registration, Login, Dashboard, Email Password, Logout
 
@@ -25,7 +25,7 @@ Account Update, 404 (Not Found)
 
 The User Registration System is Fully Responsive out the box and you can Restrict Access to any page!
 
-#### Tech Stack:
+##### Tech Stack:
 
 * NodeJS
 * React
@@ -41,7 +41,7 @@ The User Registration System is Fully Responsive out the box and you can Restric
 * Express
 * SASS
 
-#### Top Features:
+##### Top Features:
 
 * Async Validation (Redux-Form)
 * Winston - Better error handling/logging
@@ -53,13 +53,13 @@ The User Registration System is Fully Responsive out the box and you can Restric
 * Toastr - Simple javascript toast notifications
 * 100% FREE & Open Source
 
-<img src="http://git-assets.react-starter-kit.com/react-redux-registration/react-redux-registration-screenshot.png" />
-
 ### Documentation
 
 **[View the documentation here](https://simpletut.gitbook.io/universal-react-redux-registration)**
 
----
+##### Screenshot
+
+<img src="http://git-assets.react-starter-kit.com/react-redux-registration/react-redux-registration-screenshot.png" />
 
 ##### Looking for something similar?
 
