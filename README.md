@@ -16,20 +16,59 @@
 
 Please note: As the Demo is hosted on a free Heroku account, the servers its hosted on enter ‘sleep mode’ when not in use. If you notice a delay, please allow a few seconds for the servers to wake up.
 
+
+#### System includes:
+
+Registration, Login, Dashboard, Email Password, Logout
+
+Account Update, 404 (Not Found)
+
+The User Registration System is Fully Responsive out the box and you can Restrict Access to any page!
+
+#### Tech Stack:
+
+* NodeJS
+* React
+* Server-side Rendered
+* Redux
+* Redux-Thunk
+* Redux-Form
+* MongoDB
+* Mongoose
+* JSON Web Tokens
+* Webpack 4
+* Babel 7
+* Express
+* SASS
+
+#### Top Features:
+
+* Async Validation (Redux-Form)
+* Winston - Better error handling/logging
+* Bcrypt password encryption/verification
+* Nodemailer – Custom mail server used to send password reset emails
+* Custom ‘Password Reset’ Template (Built with MJML Framework)
+* Multiple Layouts – Create unlimited layouts for pages/routes
+* Unit Tests
+* Toastr - Simple javascript toast notifications
+* 100% FREE & Open Source
+
 <img src="http://git-assets.react-starter-kit.com/react-redux-registration/react-redux-registration-screenshot.png" />
 
-## Documentation
+### Documentation
 
 **[View the documentation here](https://simpletut.gitbook.io/universal-react-redux-registration)**
 
-#### Looking for something similar?
+---
 
-[Universal React Apollo Registration](https://github.com/simpletut/Universal-React-Apollo-Registration)
+##### Looking for something similar?
 
-#### Acknowledgements
+* [Universal React Apollo Registration](https://github.com/simpletut/Universal-React-Apollo-Registration)
+
+##### Acknowledgements
 
 This software was developed by Ashley Bibizadeh.
 
-#### License
+##### License
 
 The User Registration System is open source software licensed as MIT.
