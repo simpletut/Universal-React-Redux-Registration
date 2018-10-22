@@ -30,7 +30,8 @@ class Login extends Component {
 
     head() {
         return (
-            <Helmet bodyAttributes={{class: "logInPage"}}>
+            <Helmet>
+                <body className="logInPage" />
                 <title>LogIn - React Starter Kit</title>
             </Helmet>
         );

@@ -11,7 +11,8 @@ class LogOut extends Component {
 
     head() {
         return (
-            <Helmet bodyAttributes={{class: "logOutPage"}}>
+            <Helmet>
+                <body className="logOutPage" />
                 <title>LogOut - React Starter Kit</title>
             </Helmet>
         );

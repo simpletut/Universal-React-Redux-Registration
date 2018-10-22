@@ -6,7 +6,8 @@ class NotFound extends Component {
 
     head() {
         return (
-            <Helmet bodyAttributes={{class: "notFoundPage"}}>
+            <Helmet>
+                <body className="notFoundPage" />
                 <title>Not Found 404 - React Starter Kit</title>
             </Helmet>
         );
