@@ -15,7 +15,8 @@ class Account extends Component {
 
     head() {
         return (
-            <Helmet bodyAttributes={{ class: "accountPage" }}>
+            <Helmet>
+                <body className="accountPage" />
                 <title>Account - React Starter Kit</title>
             </Helmet>
         );

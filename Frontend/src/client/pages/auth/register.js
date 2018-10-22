@@ -37,7 +37,8 @@ class Register extends Component {
 
     head() {
         return (
-            <Helmet bodyAttributes={{class: "registerPage"}}>
+            <Helmet>
+                <body className="registerPage" />
                 <title>Register - React Starter Kit</title>
             </Helmet>
         );

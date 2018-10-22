@@ -35,7 +35,8 @@ class Reset extends Component {
 
     head() {
         return (
-            <Helmet bodyAttributes={{class: "resetPage"}}>
+            <Helmet>
+                <body className="resetPage" />
                 <title>Reset - React Starter Kit</title>
             </Helmet>
         );
