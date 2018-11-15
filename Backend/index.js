@@ -21,4 +21,6 @@ require('./startup/db')();
 require('./startup/config')();
 require('./startup/prod')(app);
 
-app.listen(PORT, () => console.log(`Running on port ${PORT}`));
+let server = app.listen(PORT, () => console.log(`Running on port ${PORT}`));
+
+module.exports = server;
