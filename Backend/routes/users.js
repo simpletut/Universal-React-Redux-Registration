@@ -31,6 +31,12 @@ router.post('/', async (req,res) => {
     res.header('x-auth-token', token).send(_.pick(user, ['_id']));
 });
 
+// get all users
+router.get('/', async (req,res,next) => {
+    const users = await User.find().select('-password');
+    res.send(users);    
+});
+
 // get current user
 router.get('/current-user', auth, async (req,res,next) => {
     const user = await User.findById(req.user._id).select('-password');
