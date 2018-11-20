@@ -1,0 +1,90 @@
+.usersPage {
+
+    .headline {
+        margin: 2rem auto 2rem;
+
+        h1 {
+            font-size: 2.5rem;
+            line-height: 3rem;
+            color: #010000;
+            font-weight: 700;
+            display: block;
+            width: 100%;
+            margin: 0 auto 2rem;
+        }    
+    }
+
+    .results_info {
+        display: inline-block;
+        width: 100%;
+        margin: 0 auto 2rem;
+        text-align: right;
+
+        p {
+            color: $txtCol;
+            font-size: 1.2rem;
+            line-height: 1.6rem;
+            margin-bottom: .8rem;
+        }
+
+    }
+
+    .user {
+        display: block;
+        width: 100%;
+        margin: 0 auto 2rem;
+        padding: 0 10px;
+        max-width: 42.5rem;
+
+        .wrap {
+            width: 100%;
+            height: auto;
+            display: block;
+            background: #272F37;
+            border-bottom-right-radius: 50px;
+            border-top-left-radius: 50px;
+            overflow: hidden;
+
+            .profileImage {
+                position: relative;
+                width: 100%;
+                height: 30rem;
+                padding: 0 4rem;
+                overflow: hidden;
+
+                img {
+                    position: absolute;
+                    display: block;
+                    width: auto;
+                    height: 105%;
+                    top: 50%;
+                    left: 50%;
+                    -webkit-transform: translate(-50%, -50%);
+                    -moz-transform: translate(-50%, -50%);
+                    transform: translate(-50%, -50%);
+                }
+            }
+
+            .title {
+                font-size: 1.8rem;
+                line-height: 2.4rem;
+                color: #F9F9F9;
+                font-weight: 700;
+                display: block;
+                width: 100%;
+                padding: 2rem 10px;
+                text-align: center;
+                text-transform: uppercase;
+            }
+        }
+
+    }
+
+    .paginationWrap {
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+        margin: 8rem 0 0;
+    }
+
+}

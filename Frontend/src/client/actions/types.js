@@ -9,3 +9,4 @@ export const NEW_PASSWORD_SUCCESS = 'new_password_success';
 export const NEW_PASSWORD_ERROR = 'new_password_error';
 export const RESET_PW_SUCCESS = 'reset_pw_success';
 export const RESET_PW_ERROR = 'reset_pw_error';
+export const GET_USERS = 'get_users';

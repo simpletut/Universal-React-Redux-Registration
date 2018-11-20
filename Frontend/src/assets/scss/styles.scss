@@ -2,6 +2,7 @@
 
 // lib
 @import './lib/toastr';
+@import './lib/bootstap';
 
 // Base
 @import './base/normalize';
@@ -16,3 +17,4 @@
 // Pages
 @import './pages/authentication';
 @import './pages/dashboard';
+@import './pages/users';

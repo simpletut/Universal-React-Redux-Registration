@@ -5,7 +5,7 @@ const config = require('config');
 const nodemailer = require('nodemailer');
 const hbs = require('nodemailer-express-handlebars');
 const generator = require('generate-password');
-const {User, validate, validateUsername, validateEmail, validatePassword} = require('./../models/user');
+const {User, validate, validateUsername, validateEmail, validatePassword, validatePage} = require('./../models/user');
 
 const express = require('express');
 const router = express.Router();
@@ -33,8 +33,35 @@ router.post('/', async (req,res) => {
 
 // get all users
 router.get('/', async (req,res,next) => {
-    const users = await User.find().select('-password');
+    const users = await User.find().limit(10).select('-password');
     res.send(users);    
+});
+
+router.post('/page', async (req,res,next) => {
+
+    const {error} = validatePage(req.body);
+    if(error) return res.status(400).send(error.details[0].message);
+
+    const page = req.body.page;
+    const page_arrayIndex = page - 1;
+    const resultsPerPage = 6;
+    const totalResults = await User.find().count();
+    const totalPages = Math.ceil(totalResults / resultsPerPage);
+    
+    if(page_arrayIndex > totalPages) return res.status(400).send('Bad Request');
+
+    const skip = page_arrayIndex * resultsPerPage;
+    const users = await User.find().skip(skip).limit(resultsPerPage);
+
+    const resObj = {
+        page,
+        resultsPerPage,
+        totalResults,
+        totalPages,
+        results: users
+    }
+
+    res.send(resObj);
 });
 
 // get current user

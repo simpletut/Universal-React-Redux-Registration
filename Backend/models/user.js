@@ -71,9 +71,18 @@ function validatePassword(password){
     return Joi.validate(password, schema);
 }
 
+function validatePage(page){
+    const schema = {
+        page: Joi.number().required()
+    }
+
+    return Joi.validate(page, schema);
+}
+
 exports.userSchema = userSchema;
 exports.User = User;
 exports.validate = validateUser;
 exports.validateEmail = validateEmail;
 exports.validatePassword = validatePassword;
 exports.validateUsername = validateUsername;
+exports.validatePage = validatePage;
