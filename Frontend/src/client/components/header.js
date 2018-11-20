@@ -21,6 +21,11 @@ class Header extends Component {
                                 Account
                             </Link>        
                         </li>
+                        <li>
+                            <Link to="/users">
+                                Users
+                            </Link>
+                        </li>
                         <li className="last">
                             <Link to="/logout">
                                 LogOut

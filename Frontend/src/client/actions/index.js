@@ -1,4 +1,4 @@
-import { AUTH_STATUS, AUTH_ERROR, CURRENT_USER, SIGNUP_SUCCESS, SIGNUP_ERROR, CHANGE_EMAIL_SUCCESS, CHANGE_EMAIL_ERROR, NEW_PASSWORD_SUCCESS, NEW_PASSWORD_ERROR, RESET_PW_SUCCESS, RESET_PW_ERROR } from './types';
+import { AUTH_STATUS, AUTH_ERROR, CURRENT_USER, SIGNUP_SUCCESS, SIGNUP_ERROR, CHANGE_EMAIL_SUCCESS, CHANGE_EMAIL_ERROR, NEW_PASSWORD_SUCCESS, NEW_PASSWORD_ERROR, RESET_PW_SUCCESS, RESET_PW_ERROR, GET_USERS } from './types';
 import * as Cookies from 'es-cookie';
 
 export const signupUser = (data) => async (dispatch, getState, api) => {
@@ -139,3 +139,20 @@ export const resetPassword = (data) => async (dispatch, getState, api) => {
     });
 
 }
+
+export const getUsers = (page) => async (dispatch, getState, api) => {
+    
+    const dataObj = {
+        page
+    };
+
+    await api.post('/users/page', dataObj).then(res => {
+        dispatch({
+            type: GET_USERS,
+            payload: res.data
+        });
+    }).catch((err) => {
+        console.log(err);
+    });
+
+};

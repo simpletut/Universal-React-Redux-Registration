@@ -7,6 +7,7 @@ import createStore from './../../helpers/createStore';
 const MyApp = (app) => {
     
     app.get(['/*/:param', '*'], (req, res) => {
+
         const ParamValue = req.params.param ? req.params.param : null;
     
         const store = createStore(req);

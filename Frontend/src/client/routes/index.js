@@ -11,6 +11,7 @@ import Dashboard from './../pages/dashboard';
 import Account from './../pages/auth/account';
 import LogOut from './../pages/auth/logOut';
 import NotFound from './../pages/notFound';
+import Users from './../pages/users';
 
 export default [
     {
@@ -20,6 +21,21 @@ export default [
         routes: [
             {
                 ...LogIn
+            }
+        ]
+    },
+    {
+        path: '/users',
+        ...Main,
+        routes: [
+            {
+                path: '/:pageNumber',
+                ...Users,
+                restricted: true
+            },
+            {
+                ...Users,
+                restricted: true
             }
         ]
     },
