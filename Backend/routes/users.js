@@ -51,7 +51,7 @@ router.post('/page', async (req,res,next) => {
     if(page_arrayIndex > totalPages) return res.status(400).send('Bad Request');
 
     const skip = page_arrayIndex * resultsPerPage;
-    const users = await User.find().skip(skip).limit(resultsPerPage);
+    const users = await User.find().select('-password').skip(skip).limit(resultsPerPage);
 
     const resObj = {
         page,

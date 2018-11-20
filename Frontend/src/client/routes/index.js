@@ -29,7 +29,7 @@ export default [
         ...Main,
         routes: [
             {
-                path: '/:pageNumber',
+                path: '/users/:pageNumber',
                 ...Users,
                 restricted: true
             },
