@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { getUsers } from './../actions';
 import Pagination from "react-js-pagination";
 import { Helmet } from 'react-helmet';
-import {Redirect} from 'react-router-dom';
+import {Redirect, withRouter} from 'react-router-dom';
 
 class Users extends Component {
 
@@ -15,13 +15,13 @@ class Users extends Component {
             </Helmet>
         );
     }
-
     componentDidMount(){
-        console.log(this.props);
+        const pageNumber = this.props.match.params.pageNumber;
+        this.props.getUsers(pageNumber);
     }
-
-    handlePageChange(e) {
-        this.props.getUsers(e)
+    handlePageChange(num) {
+        this.props.history.push(`/users/${num}`);
+        this.props.getUsers(num);
     }
 
     render() {
@@ -88,7 +88,7 @@ class Users extends Component {
             )
         }
 
-        return <Redirect to="/users/1"/>
+        return <Redirect to="/users/1" />
     }
 }
 
@@ -103,6 +103,6 @@ function loadData(store, pageNumber){
 }
 
 export default {
-    component: connect(mapStateToProps, { getUsers })(Users),
+    component: withRouter(connect(mapStateToProps, { getUsers })(Users)),
     loadData
 }
