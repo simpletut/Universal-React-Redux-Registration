@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { getUsers } from './../actions';
 import Pagination from "react-js-pagination";
 import { Helmet } from 'react-helmet';
-import {Redirect, withRouter} from 'react-router-dom';
+import { Redirect, withRouter } from 'react-router-dom';
 
 class Users extends Component {
 
@@ -15,7 +15,7 @@ class Users extends Component {
             </Helmet>
         );
     }
-    componentDidMount(){
+    componentDidMount() {
         const pageNumber = this.props.match.params.pageNumber;
         this.props.getUsers(pageNumber);
     }
@@ -26,9 +26,9 @@ class Users extends Component {
 
     render() {
 
-        const {page, totalPages, totalResults, results, resultsPerPage} = this.props.users;
+        const { page, totalPages, totalResults, results, resultsPerPage } = this.props.users;
 
-        if(page) {
+        if (page) {
             return (
                 <div className="grid usersPage">
                     {this.head()}
@@ -75,7 +75,6 @@ class Users extends Component {
 
                     <div className="paginationWrap">
                         <Pagination
-                            activePage={page}
                             itemsCountPerPage={resultsPerPage}
                             totalItemsCount={totalResults}
                             pageRangeDisplayed={5}
@@ -98,7 +97,7 @@ const mapStateToProps = (state) => {
     }
 }
 
-function loadData(store, pageNumber){
+function loadData(store, pageNumber) {
     return store.dispatch(getUsers(pageNumber));
 }
 
