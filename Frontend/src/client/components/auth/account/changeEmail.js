@@ -42,6 +42,8 @@ class ChangeEmail extends Component {
     }
   }
 
+  // Temp Fix Until code refactoring
+  /* eslint-disable */
   componentWillReceiveProps(nextProps) {
     if (nextProps.newEmail) {
       const token = Cookies.get('token');
@@ -54,6 +56,7 @@ class ChangeEmail extends Component {
       });
     }
   }
+  /* eslint-enable */
 
   componentWillUnmount() {
     this.props.dispatch({
@@ -75,7 +78,7 @@ class ChangeEmail extends Component {
             {this.props.newEmailErrors &&
               <div className="error-label">
                 An error has occurred.
-                            </div>
+              </div>
             }
 
             {this.props.currentUser &&
@@ -110,14 +113,16 @@ class ChangeEmail extends Component {
     );
   }
 
-};
+}
 
+/* eslint-disable */
 ChangeEmail = reduxForm({
   form: 'changeEmailForm',
   validate,
   asyncValidate,
   asyncBlurFields: ['email']
 })(ChangeEmail);
+/* eslint-enable */
 
 const mapStateToProps = (state) => {
   return {

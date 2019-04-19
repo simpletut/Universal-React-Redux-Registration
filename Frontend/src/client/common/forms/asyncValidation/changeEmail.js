@@ -2,6 +2,7 @@ import axios from 'axios';
 import { CHANGE_EMAIL_ERROR } from './../../../actions/types';
 import webConfig from './../../../../../webConfig';
 
+/* eslint-disable */
 const asyncValidate = (values, dispatch, props, field) => {
 
   var error = {};
@@ -36,6 +37,7 @@ const asyncValidate = (values, dispatch, props, field) => {
   });
 
 };
+/* eslint-enable */
 
 export default asyncValidate
 
