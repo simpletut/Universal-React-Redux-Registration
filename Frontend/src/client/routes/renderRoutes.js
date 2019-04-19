@@ -1,5 +1,5 @@
 import React from 'react'
-import Switch from 'react-router/Switch'
+import { Switch } from 'react-router-dom'
 import { Route, Redirect } from 'react-router-dom'
 
 const renderRoutes = (routes, authed, authPath, extraProps = {}, switchProps = {}) => routes ? (
@@ -11,12 +11,12 @@ const renderRoutes = (routes, authed, authPath, extraProps = {}, switchProps = {
         exact={route.exact}
         strict={route.strict}
         render={(props) => {
-          
-          if( !route.restricted || authed || route.path == authPath) {
-            return <route.component {...props} {...extraProps} route={route}/>
+
+          if (!route.restricted || authed || route.path == authPath) {
+            return <route.component {...props} {...extraProps} route={route} />
           }
           const redirPath = authPath ? authPath : '/login'
-          return <Redirect to={{pathname: redirPath, state: {from: props.location}}}/>
+          return <Redirect to={{ pathname: redirPath, state: { from: props.location } }} />
         }}
       />
     ))}

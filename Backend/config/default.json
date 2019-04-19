@@ -1,5 +1,5 @@
 {
-    "db": "mongodb://localhost/playground",
+    "db": "mongodb://test:ttvz7b@ds349065.mlab.com:49065/code-refactor-redux-reg",
     "jwtPrivateKey": "",
     "mailServer": {
         "host": "-HOST-",
