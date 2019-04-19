@@ -14,32 +14,32 @@ const mockStore = configureMockStore();
 
 describe('LogOut Page', () => {
 
-    let store;
-    beforeEach(() => {
-        store = mockStore({
-        })
-    });
+  let store;
+  beforeEach(() => {
+    store = mockStore({
+    })
+  });
 
-    it('LogOut renders as expected', () => {
-        const wrapper = mount(
-            <Provider store={store}>
-                <Router>
-                    <LogOutComponent />
-                </Router>
-            </Provider>
-        );
-        expect(wrapper.find('.auth_wrap').length).toBe(1);
-    });
+  it('LogOut renders as expected', () => {
+    const wrapper = mount(
+      <Provider store={store}>
+        <Router>
+          <LogOutComponent />
+        </Router>
+      </Provider>
+    );
+    expect(wrapper.find('.auth_wrap').length).toBe(1);
+  });
 
-    it('Quick links render as expected', () => {
-        const wrapper = mount(
-            <Provider store={store}>
-                <Router>
-                    <LogOutComponent />
-                </Router>
-            </Provider>
-        );
-        expect(wrapper.find('.quick_links ul li').length).toBe(1);
-    });
+  it('Quick links render as expected', () => {
+    const wrapper = mount(
+      <Provider store={store}>
+        <Router>
+          <LogOutComponent />
+        </Router>
+      </Provider>
+    );
+    expect(wrapper.find('.quick_links ul li').length).toBe(1);
+  });
 
 });

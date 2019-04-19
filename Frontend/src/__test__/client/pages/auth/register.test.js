@@ -14,48 +14,48 @@ const mockStore = configureMockStore();
 
 describe('Register Page', () => {
 
-    let store;
-    beforeEach(() => {
-        store = mockStore({
-            signUp: {
-                signUpStatus: false,
-                signUpErrors: false
-            }
-        })
-    });
+  let store;
+  beforeEach(() => {
+    store = mockStore({
+      signUp: {
+        signUpStatus: false,
+        signUpErrors: false
+      }
+    })
+  });
 
-    it('Register renders as expected', () => {
-        const wrapper = mount(
-            <Provider store={store}>
-                <Router>
-                    <RegisterComponent />
-                </Router>
-            </Provider>
-        );
-        expect(wrapper.find('.auth_wrap').length).toBe(1);
-    });
+  it('Register renders as expected', () => {
+    const wrapper = mount(
+      <Provider store={store}>
+        <Router>
+          <RegisterComponent />
+        </Router>
+      </Provider>
+    );
+    expect(wrapper.find('.auth_wrap').length).toBe(1);
+  });
 
-    it('All form fields render', () => {
-        const wrapper = mount(
-            <Provider store={store}>
-                <Router>
-                    <RegisterComponent />
-                </Router>
-            </Provider>
-        );
-        expect(wrapper.find('.form_row').length).toBe(6);
-    });
+  it('All form fields render', () => {
+    const wrapper = mount(
+      <Provider store={store}>
+        <Router>
+          <RegisterComponent />
+        </Router>
+      </Provider>
+    );
+    expect(wrapper.find('.form_row').length).toBe(6);
+  });
 
-    it('Quick links render as expected', () => {
-        const wrapper = mount(
-            <Provider store={store}>
-                <Router>
-                    <RegisterComponent />
-                </Router>
-            </Provider>
-        );
-        expect(wrapper.find('.quick_links ul li').length).toBe(2);
-    });
+  it('Quick links render as expected', () => {
+    const wrapper = mount(
+      <Provider store={store}>
+        <Router>
+          <RegisterComponent />
+        </Router>
+      </Provider>
+    );
+    expect(wrapper.find('.quick_links ul li').length).toBe(2);
+  });
 
 
 

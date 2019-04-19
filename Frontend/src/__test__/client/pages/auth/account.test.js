@@ -14,34 +14,34 @@ const mockStore = configureMockStore();
 
 describe('Account Page', () => {
 
-    let store;
-    beforeEach(() => {
-        store = mockStore({
-            currentUser: {
-                fName: "John",
-                lName: "Cena",
-                email: "johncena@gmail.com",
-                username: "johnCena"
-            },
-            account: {
-                newEmail: false,
-                newEmailErrors: false
-            }
-        })
-    });
+  let store;
+  beforeEach(() => {
+    store = mockStore({
+      currentUser: {
+        fName: "John",
+        lName: "Cena",
+        email: "johncena@gmail.com",
+        username: "johnCena"
+      },
+      account: {
+        newEmail: false,
+        newEmailErrors: false
+      }
+    })
+  });
 
-    it('Renders as expected', () => {
+  it('Renders as expected', () => {
 
-        const wrapper = mount(
-            <Provider store={store}>
-                <Router>
-                    <AccountComponent isUnitTest={true} />
-                </Router>
-            </Provider>
-        );
+    const wrapper = mount(
+      <Provider store={store}>
+        <Router>
+          <AccountComponent isUnitTest={true} />
+        </Router>
+      </Provider>
+    );
 
-        expect(wrapper.find('.auth_wrap').length).toBe(2);
+    expect(wrapper.find('.auth_wrap').length).toBe(2);
 
-    });
+  });
 
 });

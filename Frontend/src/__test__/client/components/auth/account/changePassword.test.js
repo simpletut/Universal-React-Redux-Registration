@@ -12,26 +12,28 @@ const mockStore = configureMockStore();
 
 describe('ChangePassword Component', () => {
 
-    let store;
-    beforeEach(() => { store = mockStore({
-        account: {
-            newPassword: false,
-            newPasswordErrors: false
-        }
-    }) });
+  let store;
+  beforeEach(() => {
+    store = mockStore({
+      account: {
+        newPassword: false,
+        newPasswordErrors: false
+      }
+    })
+  });
 
-    it('Renders as expected', () => {
+  it('Renders as expected', () => {
 
-        const wrapper = mount(
-            <Provider store={store}>
-                <Router>
-                    <ChangePassword />
-                </Router>
-            </Provider>
-        );
+    const wrapper = mount(
+      <Provider store={store}>
+        <Router>
+          <ChangePassword />
+        </Router>
+      </Provider>
+    );
 
-        expect(wrapper.find('.auth_wrap').length).toBe(1);
+    expect(wrapper.find('.auth_wrap').length).toBe(1);
 
-    });
+  });
 
 });

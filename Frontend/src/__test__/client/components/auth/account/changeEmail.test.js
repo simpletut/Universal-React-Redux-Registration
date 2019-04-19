@@ -12,26 +12,28 @@ const mockStore = configureMockStore();
 
 describe('ChangeEmail Component', () => {
 
-    let store;
-    beforeEach(() => { store = mockStore({
-        account: {
-            newEmail: false,
-            newEmailErrors: false
-        }
-    }) });
+  let store;
+  beforeEach(() => {
+    store = mockStore({
+      account: {
+        newEmail: false,
+        newEmailErrors: false
+      }
+    })
+  });
 
-    it('Renders as expected', () => {
+  it('Renders as expected', () => {
 
-        const wrapper = mount(
-            <Provider store={store}>
-                <Router>
-                    <ChangeEmail />
-                </Router>
-            </Provider>
-        );
+    const wrapper = mount(
+      <Provider store={store}>
+        <Router>
+          <ChangeEmail />
+        </Router>
+      </Provider>
+    );
 
-        expect(wrapper.find('.auth_wrap').length).toBe(1);
+    expect(wrapper.find('.auth_wrap').length).toBe(1);
 
-    });
+  });
 
 });

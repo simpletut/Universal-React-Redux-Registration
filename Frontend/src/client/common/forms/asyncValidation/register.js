@@ -3,60 +3,60 @@ import { SIGNUP_ERROR } from './../../../actions/types';
 import webConfig from './../../../../../webConfig';
 
 const asyncValidate = (values, dispatch, props, field) => {
-    
-    var error = {};
 
-    const email = new Promise(resolve => {
-        if (values.email) {
-            axios.post(`${webConfig.axiosInstance_baseURL}/users/email/unique`, values)
-            .then(res => {
+  var error = {};
 
-                if (res.data.unique != true) {
-                    error.email = 'Email has been used...';
-                }
+  const email = new Promise(resolve => {
+    if (values.email) {
+      axios.post(`${webConfig.axiosInstance_baseURL}/users/email/unique`, values)
+        .then(res => {
 
-                resolve()
+          if (res.data.unique != true) {
+            error.email = 'Email has been used...';
+          }
 
-            }).catch(() => {
-                dispatch({
-                    type: SIGNUP_ERROR,
-                    payload: true
-                });
-            });
+          resolve()
 
-        }else{
-            resolve()
-        }
-    });
+        }).catch(() => {
+          dispatch({
+            type: SIGNUP_ERROR,
+            payload: true
+          });
+        });
 
-    const username = new Promise(resolve => {
-        if (values.username) {
-            axios.post(`${webConfig.axiosInstance_baseURL}/users/username/unique`, values)
-            .then(res => {
+    } else {
+      resolve()
+    }
+  });
 
-                if (res.data.unique != true) {
-                    error.username = 'Username has been used.';
-                }
+  const username = new Promise(resolve => {
+    if (values.username) {
+      axios.post(`${webConfig.axiosInstance_baseURL}/users/username/unique`, values)
+        .then(res => {
 
-                resolve()
+          if (res.data.unique != true) {
+            error.username = 'Username has been used.';
+          }
 
-            }).catch(() => {
-                dispatch({
-                    type: SIGNUP_ERROR,
-                    payload: true
-                });
-            });
+          resolve()
 
-        }else{
-            resolve()
-        }
-    });
+        }).catch(() => {
+          dispatch({
+            type: SIGNUP_ERROR,
+            payload: true
+          });
+        });
 
-    return Promise.all([email, username]).then(() => {
-        if(error.email || error.username){
-            throw error;
-        }
-    });
+    } else {
+      resolve()
+    }
+  });
+
+  return Promise.all([email, username]).then(() => {
+    if (error.email || error.username) {
+      throw error;
+    }
+  });
 
 };
 

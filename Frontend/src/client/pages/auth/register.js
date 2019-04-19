@@ -13,167 +13,167 @@ import { Helmet } from 'react-helmet';
 
 class Register extends Component {
 
-    submit(data) {
-        const newUser = _.pick(data, ['fName', 'lName', 'email', 'username', 'password'])
-        this.props.signupUser(newUser)
+  submit(data) {
+    const newUser = _.pick(data, ['fName', 'lName', 'email', 'username', 'password'])
+    this.props.signupUser(newUser)
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.signUpStatus) {
+      this.props.dispatch({
+        type: SIGNUP_SUCCESS,
+        payload: false
+      });
+      this.props.history.push('/login')
     }
+  }
 
-    componentWillReceiveProps(nextProps) {
-        if (nextProps.signUpStatus) {
-            this.props.dispatch({
-                type: SIGNUP_SUCCESS,
-                payload: false
-            });
-            this.props.history.push('/login')
-        }        
-    }
+  componentWillUnmount() {
+    this.props.dispatch({
+      type: SIGNUP_ERROR,
+      payload: false
+    });
+  }
 
-    componentWillUnmount(){
-        this.props.dispatch({
-            type: SIGNUP_ERROR,
-            payload: false
-        });
-    }
+  head() {
+    return (
+      <Helmet>
+        <body className="registerPage" />
+        <title>Register - React Starter Kit</title>
+      </Helmet>
+    );
+  }
 
-    head() {
-        return (
-            <Helmet>
-                <body className="registerPage" />
-                <title>Register - React Starter Kit</title>
-            </Helmet>
-        );
-    }
+  render() {
+    const { handleSubmit, pristine } = this.props
+    return (
+      <div>
+        {this.head()}
+        <div className="auth_wrap">
+          <form onSubmit={handleSubmit(this.submit.bind(this))}>
 
-    render() {
-        const { handleSubmit, pristine } = this.props
-        return (
-            <div>
-                {this.head()}
-                <div className="auth_wrap">
-                    <form onSubmit={handleSubmit(this.submit.bind(this))}>
+            <div className="form_wrap withHeading">
 
-                        <div className="form_wrap withHeading">
+              <h1>Register</h1>
 
-                            <h1>Register</h1>
-
-                            {this.props.signUpErrors &&
-                                <div className="error-label">
-                                    An error has occurred.
+              {this.props.signUpErrors &&
+                <div className="error-label">
+                  An error has occurred.
                                 </div>
-                            }
+              }
 
-                            <div className="form_row noLabel">
+              <div className="form_row noLabel">
 
-                                <Field
-                                    name="fName"
-                                    component={renderTextField}
-                                    placeholder="First Name"
-                                />
+                <Field
+                  name="fName"
+                  component={renderTextField}
+                  placeholder="First Name"
+                />
 
-                            </div>
+              </div>
 
-                            <div className="form_row noLabel">
+              <div className="form_row noLabel">
 
-                                <Field
-                                    name="lName"
-                                    component={renderTextField}
-                                    placeholder="Last Name"
-                                />
+                <Field
+                  name="lName"
+                  component={renderTextField}
+                  placeholder="Last Name"
+                />
 
-                            </div>
+              </div>
 
-                            <div className="form_row noLabel">
+              <div className="form_row noLabel">
 
-                                <Field
-                                    name="email"
-                                    component={renderTextField}
-                                    type="email"
-                                    placeholder="Email"
-                                />
+                <Field
+                  name="email"
+                  component={renderTextField}
+                  type="email"
+                  placeholder="Email"
+                />
 
-                            </div>
+              </div>
 
-                            <div className="form_row noLabel">
+              <div className="form_row noLabel">
 
-                                <Field
-                                    name="username"
-                                    component={renderTextField}
-                                    type="text"
-                                    placeholder="Username"
-                                />
+                <Field
+                  name="username"
+                  component={renderTextField}
+                  type="text"
+                  placeholder="Username"
+                />
 
-                            </div>
+              </div>
 
-                            <div className="form_row noLabel">
+              <div className="form_row noLabel">
 
-                                <Field
-                                    name="password"
-                                    component={renderTextField}
-                                    placeholder="Create your password"
-                                    type="password"
-                                />
+                <Field
+                  name="password"
+                  component={renderTextField}
+                  placeholder="Create your password"
+                  type="password"
+                />
 
-                            </div>
+              </div>
 
-                            <div className="form_row noLabel">
+              <div className="form_row noLabel">
 
-                                <Field
-                                    name="confirmPassword"
-                                    component={renderTextField}
-                                    placeholder="Confirm your password"
-                                    type="password"
-                                />
+                <Field
+                  name="confirmPassword"
+                  component={renderTextField}
+                  placeholder="Confirm your password"
+                  type="password"
+                />
 
-                            </div>
+              </div>
 
 
 
-                        </div>
-
-                        <div className={classNames({ 'form_buttons': true })}>
-
-                            <button disabled={this.props.asyncValidating} className="btn" type="submit">
-                                <span>Sign up</span>
-                            </button>
-
-                        </div>
-
-                    </form>
-                </div>
-                <div className="quick_links">
-                    <ul>
-                        <li>
-                            <Link to="/login">
-                                Already have an account?
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to="/reset">
-                                Forgot your password?
-                            </Link>
-                        </li>
-                    </ul>
-                </div>
             </div>
-        );
-    }
+
+            <div className={classNames({ 'form_buttons': true })}>
+
+              <button disabled={this.props.asyncValidating} className="btn" type="submit">
+                <span>Sign up</span>
+              </button>
+
+            </div>
+
+          </form>
+        </div>
+        <div className="quick_links">
+          <ul>
+            <li>
+              <Link to="/login">
+                Already have an account?
+                            </Link>
+            </li>
+            <li>
+              <Link to="/reset">
+                Forgot your password?
+                            </Link>
+            </li>
+          </ul>
+        </div>
+      </div>
+    );
+  }
 
 };
 
 Register = reduxForm({
-    form: 'RegisterForm',
-    validate,
-    asyncValidate,
-    asyncBlurFields: ['email', 'username']
+  form: 'RegisterForm',
+  validate,
+  asyncValidate,
+  asyncBlurFields: ['email', 'username']
 })(Register);
 
 const mapStateToProps = (state) => {
-    return {
-        signUpStatus: state.signUp.signUpStatus,
-        signUpErrors: state.signUp.signUpErrors
-    }
+  return {
+    signUpStatus: state.signUp.signUpStatus,
+    signUpErrors: state.signUp.signUpErrors
+  }
 }
 
 export default {
-    component: connect(mapStateToProps, { signupUser })(withRouter(Register))
+  component: connect(mapStateToProps, { signupUser })(withRouter(Register))
 };

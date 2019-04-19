@@ -14,50 +14,50 @@ const mockStore = configureMockStore();
 
 describe('Reset Page', () => {
 
-    let store;
-    beforeEach(() => {
-        store = mockStore({
-            account: {
-                resetPassword: false,
-                resetPasswordErrors: false
-            }
-        })
-    });
+  let store;
+  beforeEach(() => {
+    store = mockStore({
+      account: {
+        resetPassword: false,
+        resetPasswordErrors: false
+      }
+    })
+  });
 
-    it('Reset renders as expected', () => {
-        const wrapper = mount(
-            <Provider store={store}>
-                <Router>
-                    <ResetComponent />
-                </Router>
-            </Provider>
-        );
-        expect(wrapper.find('.auth_wrap').length).toBe(1);
-    });
+  it('Reset renders as expected', () => {
+    const wrapper = mount(
+      <Provider store={store}>
+        <Router>
+          <ResetComponent />
+        </Router>
+      </Provider>
+    );
+    expect(wrapper.find('.auth_wrap').length).toBe(1);
+  });
 
-    it('Quick links render as expected', () => {
-        const wrapper = mount(
-            <Provider store={store}>
-                <Router>
-                    <ResetComponent />
-                </Router>
-            </Provider>
-        );
-        expect(wrapper.find('.quick_links ul li').length).toBe(1);
-    });
+  it('Quick links render as expected', () => {
+    const wrapper = mount(
+      <Provider store={store}>
+        <Router>
+          <ResetComponent />
+        </Router>
+      </Provider>
+    );
+    expect(wrapper.find('.quick_links ul li').length).toBe(1);
+  });
 
-    it('Form fields render as expected', () => {
-        const wrapper = mount(
-            <Provider store={store}>
-                <Router>
-                    <ResetComponent />
-                </Router>
-            </Provider>
-        );
-        expect(wrapper.find('.form_row').length).toBe(1);
-    });
+  it('Form fields render as expected', () => {
+    const wrapper = mount(
+      <Provider store={store}>
+        <Router>
+          <ResetComponent />
+        </Router>
+      </Provider>
+    );
+    expect(wrapper.find('.form_row').length).toBe(1);
+  });
 
-    
+
 
 
 
