@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import {getAuthStatus, checkAuthStatus, force_noAuthStatus} from './../actions';
 import * as Cookies from 'es-cookie';
+import '../../assets/scss/styles.scss';
 
 import Header from './../components/header';
 import Footer from './../components/footer';
