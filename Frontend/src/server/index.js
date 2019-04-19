@@ -12,5 +12,5 @@ AppConfig(app);
 MyApp(app);
 
 app.listen(port, () => {
-    console.log(`Running on Port ${port}`);
+  console.log(`Running on Port ${port}`);
 });

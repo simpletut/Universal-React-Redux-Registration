@@ -8,10 +8,10 @@ import account from './accountReducer';
 import users from './usersReducer';
 
 export default combineReducers({
-    form: formReducer,
-    authStatus,
-    currentUser,
-    signUp,
-    account,
-    users
+  form: formReducer,
+  authStatus,
+  currentUser,
+  signUp,
+  account,
+  users
 });

@@ -14,36 +14,36 @@ const mockStore = configureMockStore();
 
 describe('Login Page', () => {
 
-    let store;
-    beforeEach(() => {
-        store = mockStore({
-            authStatus: {
-                status: false,
-                errors: false
-            }
-        })
-    });
+  let store;
+  beforeEach(() => {
+    store = mockStore({
+      authStatus: {
+        status: false,
+        errors: false
+      }
+    })
+  });
 
-    it('LogIn form renders as expected', () => {
-        const wrapper = mount(
-            <Provider store={store}>
-                <Router>
-                    <LoginComponent />
-                </Router>
-            </Provider>
-        );
-        expect(wrapper.find('.auth_wrap').length).toBe(1);
-    });
+  it('LogIn form renders as expected', () => {
+    const wrapper = mount(
+      <Provider store={store}>
+        <Router>
+          <LoginComponent />
+        </Router>
+      </Provider>
+    );
+    expect(wrapper.find('.auth_wrap').length).toBe(1);
+  });
 
-    it('Quick links render as expected', () => {
-        const wrapper = mount(
-            <Provider store={store}>
-                <Router>
-                    <LoginComponent />
-                </Router>
-            </Provider>
-        );
-        expect(wrapper.find('.quick_links ul li').length).toBe(2);
-    });
+  it('Quick links render as expected', () => {
+    const wrapper = mount(
+      <Provider store={store}>
+        <Router>
+          <LoginComponent />
+        </Router>
+      </Provider>
+    );
+    expect(wrapper.find('.quick_links ul li').length).toBe(2);
+  });
 
 });

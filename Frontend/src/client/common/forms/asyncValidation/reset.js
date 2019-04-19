@@ -3,37 +3,37 @@ import { RESET_PW_ERROR } from './../../../actions/types';
 import webConfig from './../../../../../webConfig';
 
 const asyncValidate = (values, dispatch, props, field) => {
-    
-    var error = {};
 
-    const email = new Promise(resolve => {
-        if (values.email) {
-            axios.post(`${webConfig.axiosInstance_baseURL}/users/email/unique`, values)
-            .then(res => {
+  var error = {};
 
-                if (res.data.unique === true) {
-                    error.email = 'Account not found.';
-                }
+  const email = new Promise(resolve => {
+    if (values.email) {
+      axios.post(`${webConfig.axiosInstance_baseURL}/users/email/unique`, values)
+        .then(res => {
 
-                resolve()
+          if (res.data.unique === true) {
+            error.email = 'Account not found.';
+          }
 
-            }).catch(() => {
-                dispatch({
-                    type: RESET_PW_ERROR,
-                    payload: true
-                });
-            });
+          resolve()
 
-        }else{
-            resolve()
-        }
-    });
+        }).catch(() => {
+          dispatch({
+            type: RESET_PW_ERROR,
+            payload: true
+          });
+        });
 
-    return Promise.all([email]).then(() => {
-        if(error.email){
-            throw error;
-        }
-    });
+    } else {
+      resolve()
+    }
+  });
+
+  return Promise.all([email]).then(() => {
+    if (error.email) {
+      throw error;
+    }
+  });
 
 };
 

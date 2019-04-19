@@ -1,4 +1,3 @@
-
 export const validate_registerForm = values => {
 
   const errors = {}
