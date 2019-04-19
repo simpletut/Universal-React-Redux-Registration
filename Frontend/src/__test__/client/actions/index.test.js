@@ -3,11 +3,13 @@ import expect from 'expect';
 import * as actions from './../../../client/actions/index';
 import { AUTH_STATUS } from './../../../client/actions/types';
 
+/* eslint-disable */
 const history = {
   push: function (url) {
     // to be past as props.. do nothing..
   }
 }
+/* eslint-enable */
 
 describe('Action: force_noAuthStatus', () => {
 

@@ -3,12 +3,12 @@ import * as Cookies from 'es-cookie';
 
 export const signupUser = (data) => async (dispatch, getState, api) => {
 
-  await api.post('/users', data).then(response => {
+  await api.post('/users', data).then(() => {
     dispatch({
       type: SIGNUP_SUCCESS,
       payload: true
     })
-  }).catch((err) => {
+  }).catch(() => {
     dispatch({
       type: SIGNUP_ERROR,
       payload: true
@@ -26,7 +26,7 @@ export const loginUser = (data) => async (dispatch, getState, api) => {
       type: AUTH_STATUS,
       payload: true
     })
-  }).catch((err) => {
+  }).catch(() => {
     dispatch({
       type: AUTH_ERROR,
       payload: true
@@ -91,12 +91,12 @@ export const changeEmail = (token, data) => async (dispatch, getState, api) => {
     api.defaults.headers['x-auth-token'] = token;
   }
 
-  await api.put('/users/email', data).then(res => {
+  await api.put('/users/email', data).then(() => {
     dispatch({
       type: CHANGE_EMAIL_SUCCESS,
       payload: true
     })
-  }).catch(err => {
+  }).catch(() => {
     dispatch({
       type: CHANGE_EMAIL_ERROR,
       payload: true
@@ -110,7 +110,7 @@ export const changePassword = (token, data) => async (dispatch, getState, api) =
     api.defaults.headers['x-auth-token'] = token;
   }
 
-  await api.put('/users/password', data).then(res => {
+  await api.put('/users/password', data).then(() => {
     dispatch({
       type: NEW_PASSWORD_SUCCESS,
       payload: true
@@ -126,12 +126,12 @@ export const changePassword = (token, data) => async (dispatch, getState, api) =
 
 export const resetPassword = (data) => async (dispatch, getState, api) => {
 
-  await api.put('/users/reset', data).then(res => {
+  await api.put('/users/reset', data).then(() => {
     dispatch({
       type: RESET_PW_SUCCESS,
       payload: true
     })
-  }).catch(err => {
+  }).catch(() => {
     dispatch({
       type: RESET_PW_ERROR,
       payload: true
@@ -151,8 +151,6 @@ export const getUsers = (page) => async (dispatch, getState, api) => {
       type: GET_USERS,
       payload: res.data
     });
-  }).catch((err) => {
-    console.log(err);
-  });
+  }).catch(() => {});
 
 };
