@@ -19,17 +19,17 @@ class Header extends Component {
             <li className="first">
               <Link to="/account">
                 Account
-                            </Link>
+              </Link>
             </li>
             <li>
               <Link to="/users/1">
                 Users
-                            </Link>
+              </Link>
             </li>
             <li className="last">
               <Link to="/logout">
                 LogOut
-                            </Link>
+              </Link>
             </li>
           </ul>
         </nav>
@@ -37,6 +37,6 @@ class Header extends Component {
     );
   }
 
-};
+}
 
 export default Header;

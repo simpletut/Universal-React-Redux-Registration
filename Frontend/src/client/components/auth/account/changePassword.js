@@ -37,6 +37,7 @@ class ChangePassword extends Component {
     }
   }
 
+  /* eslint-disable */
   componentWillReceiveProps(nextProps) {
     if (nextProps.newPassword) {
       toastr.success('We have updated your password.', 'Saved!');
@@ -47,6 +48,7 @@ class ChangePassword extends Component {
       });
     }
   }
+  /* eslint-enable */
 
   componentWillUnmount() {
     this.props.dispatch({
@@ -68,7 +70,7 @@ class ChangePassword extends Component {
             {this.props.newPasswordErrors &&
               <div className="error-label">
                 An error has occurred.
-                            </div>
+              </div>
             }
 
             <div className="form_row noLabel">
@@ -108,12 +110,14 @@ class ChangePassword extends Component {
     );
   }
 
-};
+}
 
+/* eslint-disable */
 ChangePassword = reduxForm({
   form: 'changePasswordForm',
   validate
 })(ChangePassword);
+/* eslint-enable */
 
 const mapStateToProps = (state) => {
   return {

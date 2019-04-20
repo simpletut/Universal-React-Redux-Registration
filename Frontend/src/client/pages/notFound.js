@@ -22,8 +22,8 @@ class NotFound extends Component {
           <div className="form_wrap withHeading logoutWrap">
             <h1>404. PAGE NOT FOUND.</h1>
             <p className="desc">
-              We're sorry. The page you requested can not be found. Please try one of the links below.
-                    </p>
+              ${`We're sorry. The page you requested can not be found. Please try one of the links below.`}
+            </p>
           </div>
 
         </div>
@@ -32,7 +32,7 @@ class NotFound extends Component {
             <li>
               <Link to="/dashboard">
                 Your account
-                            </Link>
+              </Link>
             </li>
           </ul>
         </div>

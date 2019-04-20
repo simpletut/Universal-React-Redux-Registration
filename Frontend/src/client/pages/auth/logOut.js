@@ -28,7 +28,7 @@ class LogOut extends Component {
             <h1>Logged out</h1>
             <p className="desc">
               Please come back soon!
-                    </p>
+            </p>
           </div>
 
         </div>
@@ -37,7 +37,7 @@ class LogOut extends Component {
             <li>
               <Link to="/login">
                 LogIn to your account
-                            </Link>
+              </Link>
             </li>
           </ul>
         </div>

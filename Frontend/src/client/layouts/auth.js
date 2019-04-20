@@ -44,7 +44,7 @@ class Auth extends Component {
     );
   }
 
-};
+}
 
 const mapStateToProps = (state) => ({
   authStatus: state.authStatus.status

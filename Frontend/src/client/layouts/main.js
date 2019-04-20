@@ -45,7 +45,7 @@ class Main extends Component {
     );
   }
 
-};
+}
 
 const mapStateToProps = (state) => ({
   authStatus: state.authStatus.status

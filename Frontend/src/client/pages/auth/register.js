@@ -18,6 +18,8 @@ class Register extends Component {
     this.props.signupUser(newUser)
   }
 
+  // Temp Fix Until code refactoring
+  /* eslint-disable */
   componentWillReceiveProps(nextProps) {
     if (nextProps.signUpStatus) {
       this.props.dispatch({
@@ -27,6 +29,7 @@ class Register extends Component {
       this.props.history.push('/login')
     }
   }
+  /* eslint-enable */
 
   componentWillUnmount() {
     this.props.dispatch({
@@ -45,7 +48,7 @@ class Register extends Component {
   }
 
   render() {
-    const { handleSubmit, pristine } = this.props
+    const { handleSubmit } = this.props
     return (
       <div>
         {this.head()}
@@ -59,7 +62,7 @@ class Register extends Component {
               {this.props.signUpErrors &&
                 <div className="error-label">
                   An error has occurred.
-                                </div>
+                </div>
               }
 
               <div className="form_row noLabel">
@@ -126,8 +129,6 @@ class Register extends Component {
 
               </div>
 
-
-
             </div>
 
             <div className={classNames({ 'form_buttons': true })}>
@@ -145,12 +146,12 @@ class Register extends Component {
             <li>
               <Link to="/login">
                 Already have an account?
-                            </Link>
+              </Link>
             </li>
             <li>
               <Link to="/reset">
                 Forgot your password?
-                            </Link>
+              </Link>
             </li>
           </ul>
         </div>
@@ -158,14 +159,16 @@ class Register extends Component {
     );
   }
 
-};
+}
 
+/* eslint-disable */
 Register = reduxForm({
   form: 'RegisterForm',
   validate,
   asyncValidate,
   asyncBlurFields: ['email', 'username']
 })(Register);
+/* eslint-enable */
 
 const mapStateToProps = (state) => {
   return {

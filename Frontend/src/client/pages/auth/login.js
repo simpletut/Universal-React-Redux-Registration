@@ -15,11 +15,14 @@ class Login extends Component {
     this.props.loginUser(data)
   }
 
+  // Temp Fix Until code refactoring
+  /* eslint-disable */
   componentWillReceiveProps(nextProps) {
     if (nextProps.authStatus == true) {
       this.props.history.push('/dashboard');
     }
   }
+  /* eslint-enable */
 
   componentWillUnmount() {
     this.props.dispatch({
@@ -52,7 +55,7 @@ class Login extends Component {
               {this.props.authErrors &&
                 <div className="error-label">
                   An error has occurred.
-                                </div>
+                </div>
               }
 
 
@@ -94,13 +97,13 @@ class Login extends Component {
           <ul>
             <li>
               <Link to="/register">
-                Don't have an account?
-                            </Link>
+                ${`Don't have an account?`}
+              </Link>
             </li>
             <li>
               <Link to="/reset">
                 Forgot your password?
-                            </Link>
+              </Link>
             </li>
           </ul>
         </div>
@@ -108,12 +111,14 @@ class Login extends Component {
     );
   }
 
-};
+}
 
+/* eslint-disable */
 Login = reduxForm({
   form: 'LogInForm',
   validate
 })(Login);
+/* eslint-enable */
 
 const mapStateToProps = (state) => {
   return {

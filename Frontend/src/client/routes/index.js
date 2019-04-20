@@ -1,5 +1,3 @@
-import React from 'react';
-
 // Layouts
 import Auth from './../layouts/auth';
 import Main from './../layouts/main';

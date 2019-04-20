@@ -7,11 +7,11 @@ let initial_state = {
 
 export default function (state = initial_state, action) {
   switch (action.type) {
-    case AUTH_STATUS:
-      return { ...state, status: action.payload };
-    case AUTH_ERROR:
-      return { ...state, errors: action.payload };
-    default:
-      return state;
+  case AUTH_STATUS:
+    return { ...state, status: action.payload };
+  case AUTH_ERROR:
+    return { ...state, errors: action.payload };
+  default:
+    return state;
   }
 }

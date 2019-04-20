@@ -16,6 +16,8 @@ class Reset extends Component {
     this.props.resetPassword(data);
   }
 
+  // Temp Fix Until code refactoring
+  /* eslint-disable */
   componentWillReceiveProps(nextProps) {
     if (nextProps.resetPasswordStatus) {
       this.props.dispatch({
@@ -25,6 +27,7 @@ class Reset extends Component {
       this.props.history.push('/login');
     }
   }
+  /* eslint-enable */
 
   componentWillUnmount() {
     this.props.dispatch({
@@ -57,7 +60,7 @@ class Reset extends Component {
               {this.props.resetPasswordErrors &&
                 <div className="error-label">
                   An error has occurred.
-                                </div>
+                </div>
               }
 
               <div className="form_row noLabel">
@@ -88,7 +91,7 @@ class Reset extends Component {
             <li>
               <Link to="/login">
                 Remembered your login details?
-                            </Link>
+              </Link>
             </li>
           </ul>
         </div>
@@ -96,14 +99,16 @@ class Reset extends Component {
     );
   }
 
-};
+}
 
+/* eslint-disable */
 Reset = reduxForm({
   form: 'ResetForm',
   validate,
   asyncValidate,
   asyncBlurFields: ['email']
 })(Reset);
+/* eslint-enable */
 
 const mapStateToProps = (state) => {
   return {

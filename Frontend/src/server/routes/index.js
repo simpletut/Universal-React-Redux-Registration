@@ -1,4 +1,3 @@
-import express from 'express';
 import { matchRoutes } from 'react-router-config';
 import Routes from './../../client/routes/index';
 import renderer from './../../helpers/renderer';
@@ -18,7 +17,7 @@ const MyApp = (app) => {
       })
       .map(promise => {
         if (promise) {
-          return new Promise((resolve, reject) => {
+          return new Promise((resolve) => {
             promise.then(resolve).catch(resolve);
           });
         }
