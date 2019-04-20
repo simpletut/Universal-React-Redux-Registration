@@ -12,5 +12,7 @@ AppConfig(app);
 MyApp(app);
 
 app.listen(port, () => {
-    console.log(`Running on Port ${port}`);
+  /* eslint-disable */
+  console.log(`Running on Port ${port}`);
+  /* eslint-enable */
 });

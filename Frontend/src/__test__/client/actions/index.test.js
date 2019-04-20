@@ -1,27 +1,29 @@
 import expect from 'expect';
 
 import * as actions from './../../../client/actions/index';
-import {AUTH_STATUS} from './../../../client/actions/types';
+import { AUTH_STATUS } from './../../../client/actions/types';
 
+/* eslint-disable */
 const history = {
-    push: function(url){
-        // to be past as props.. do nothing..
-    }
+  push: function (url) {
+    // to be past as props.. do nothing..
+  }
 }
+/* eslint-enable */
 
 describe('Action: force_noAuthStatus', () => {
 
-    it('Set auth status to false', () => {
+  it('Set auth status to false', () => {
 
-        const mockData = false;
+    const mockData = false;
 
-        const expectedAction = {
-            type: AUTH_STATUS,
-            payload: mockData
-        }
+    const expectedAction = {
+      type: AUTH_STATUS,
+      payload: mockData
+    }
 
-        expect(actions.force_noAuthStatus(mockData, history)).toEqual(expectedAction)
+    expect(actions.force_noAuthStatus(mockData, history)).toEqual(expectedAction)
 
-    })
+  })
 
 });

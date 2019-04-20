@@ -8,15 +8,15 @@ configure({ adapter: new Adapter() });
 
 describe('Auth Layout Header Component', () => {
 
-    it('Ensure Header component renders', () => {
+  it('Ensure Header component renders', () => {
 
-        const component = mount(
-            <BrowserRouter>
-                <Header />
-            </BrowserRouter>);
-            
-        expect(component.find('header').length).toBe(1);
+    const component = mount(
+      <BrowserRouter>
+        <Header />
+      </BrowserRouter>);
 
-    });
+    expect(component.find('header').length).toBe(1);
+
+  });
 
 });

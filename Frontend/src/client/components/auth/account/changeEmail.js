@@ -9,121 +9,126 @@ import { CHANGE_EMAIL_SUCCESS, CHANGE_EMAIL_ERROR } from './../../../actions/typ
 import toastr from 'toastr';
 import * as Cookies from 'es-cookie';
 import asyncValidate from './../../../common/forms/asyncValidation/changeEmail';
-import {get_currentUser} from './../../../actions';
+import { get_currentUser } from './../../../actions';
 
 class ChangeEmail extends Component {
 
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
+  }
+
+  submit(data) {
+    let token = Cookies.get('token');
+    this.props.changeEmail(token, data);
+  }
+
+  componentDidMount() {
+    toastr.options = {
+      "closeButton": false,
+      "debug": false,
+      "newestOnTop": true,
+      "progressBar": true,
+      "positionClass": "toast-bottom-right",
+      "preventDuplicates": false,
+      "onclick": null,
+      "showDuration": "300",
+      "hideDuration": "1000",
+      "timeOut": "5000",
+      "extendedTimeOut": "1000",
+      "showEasing": "swing",
+      "hideEasing": "linear",
+      "showMethod": "fadeIn",
+      "hideMethod": "fadeOut"
     }
+  }
 
-    submit(data) {
-        let token = Cookies.get('token');
-        this.props.changeEmail(token, data);
+  // Temp Fix Until code refactoring
+  /* eslint-disable */
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.newEmail) {
+      const token = Cookies.get('token');
+      this.props.get_currentUser(token);
+      toastr.success('We have updated your email.', 'Saved!');
+      this.props.reset();
+      this.props.dispatch({
+        type: CHANGE_EMAIL_SUCCESS,
+        payload: false
+      });
     }
+  }
+  /* eslint-enable */
 
-    componentDidMount() {
-        toastr.options = {
-            "closeButton": false,
-            "debug": false,
-            "newestOnTop": true,
-            "progressBar": true,
-            "positionClass": "toast-bottom-right",
-            "preventDuplicates": false,
-            "onclick": null,
-            "showDuration": "300",
-            "hideDuration": "1000",
-            "timeOut": "5000",
-            "extendedTimeOut": "1000",
-            "showEasing": "swing",
-            "hideEasing": "linear",
-            "showMethod": "fadeIn",
-            "hideMethod": "fadeOut"
-        }
-    }
+  componentWillUnmount() {
+    this.props.dispatch({
+      type: CHANGE_EMAIL_ERROR,
+      payload: false
+    });
+  }
 
-    componentWillReceiveProps(nextProps) {
-        if (nextProps.newEmail) {
-            const token = Cookies.get('token');
-            this.props.get_currentUser(token);
-            toastr.success('We have updated your email.', 'Saved!');
-            this.props.reset();
-            this.props.dispatch({
-                type: CHANGE_EMAIL_SUCCESS,
-                payload: false
-            });
-        }
-    }
+  render() {
+    const { handleSubmit } = this.props
+    return (
+      <div className="auth_wrap">
+        <form onSubmit={handleSubmit(this.submit.bind(this))}>
 
-    componentWillUnmount() {
-        this.props.dispatch({
-            type: CHANGE_EMAIL_ERROR,
-            payload: false
-        });
-    }
+          <div className="form_wrap withHeading">
 
-    render() {
-        const { handleSubmit } = this.props
-        return (
-            <div className="auth_wrap">
-                <form onSubmit={handleSubmit(this.submit.bind(this))}>
+            <h1>Change email</h1>
 
-                    <div className="form_wrap withHeading">
+            {this.props.newEmailErrors &&
+              <div className="error-label">
+                An error has occurred.
+              </div>
+            }
 
-                        <h1>Change email</h1>
+            {this.props.currentUser &&
+              <p>
+                Current email: {this.props.currentUser.email}
+              </p>
+            }
 
-                        {this.props.newEmailErrors &&
-                            <div className="error-label">
-                                An error has occurred.
-                            </div>
-                        }
+            <div className="form_row noLabel">
 
-                        {this.props.currentUser &&
-                            <p>
-                                Current email: {this.props.currentUser.email}
-                            </p>
-                        }
+              <Field
+                name="email"
+                component={renderTextField}
+                type="email"
+                placeholder="Email"
+              />
 
-                        <div className="form_row noLabel">
-
-                            <Field
-                                name="email"
-                                component={renderTextField}
-                                type="email"
-                                placeholder="Email"
-                            />
-
-                        </div>
-
-                    </div>
-
-                    <div className={classNames({ 'form_buttons': true })}>
-
-                        <button disabled={this.props.asyncValidating} className="btn" type="submit">
-                            <span>Change email</span>
-                        </button>
-
-                    </div>
-
-                </form>
             </div>
-        );
-    }
 
-};
+          </div>
 
+          <div className={classNames({ 'form_buttons': true })}>
+
+            <button disabled={this.props.asyncValidating} className="btn" type="submit">
+              <span>Change email</span>
+            </button>
+
+          </div>
+
+        </form>
+      </div>
+    );
+  }
+
+}
+
+/* eslint-disable */
 ChangeEmail = reduxForm({
-    form: 'changeEmailForm',
-    validate,
-    asyncValidate,
-    asyncBlurFields: ['email']
+  form: 'changeEmailForm',
+  validate,
+  asyncValidate,
+  asyncBlurFields: ['email']
 })(ChangeEmail);
+/* eslint-enable */
 
 const mapStateToProps = (state) => {
-    return {
-        newEmail: state.account.newEmail,
-        newEmailErrors: state.account.newEmailErrors
-    }
+  return {
+    newEmail: state.account.newEmail,
+    newEmailErrors: state.account.newEmailErrors
+  }
 }
 
 export default connect(mapStateToProps, { changeEmail, get_currentUser })(ChangeEmail)
